@@ -32,8 +32,7 @@ define(["core/utils/ClassUtil", "core/screens/BaseScreen", "views/screens/Screen
 	};
 
 	GameScreen.prototype.onPlayClicked = function() {
-		console.log("play");
-		//this.emit("changeScreen", Screens.BATTLE_SCREEN);
+		this.emit("changeScreen", Screens.PLAY_SCREEN);
 	};
 
 	return GameScreen;

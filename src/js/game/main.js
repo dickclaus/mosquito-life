@@ -13,6 +13,6 @@ define(function (require) {
 
 	var game = new Game(stage);
 	game.showGame();
-	
+
 	renderer.render(stage);
 });
