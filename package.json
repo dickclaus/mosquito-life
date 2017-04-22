@@ -1,7 +1,7 @@
 {
-  "name": "mosquito-life",
+  "name": "potions-recipes-ld38",
   "version": "0.0.1",
-  "description": "Mosquito Life - game for Ludum Dare 38",
+  "description": "Potions recipes - game for Ludum Dare 38",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -11,12 +11,15 @@
     "LD38",
     "Ludum",
     "Dare",
-    "mosquito",
-    "life"
+    "potions",
+    "explorations",
+    "crafting",
+    "adventure"
   ],
   "author": "Dmitry Bezverkhiy",
   "license": "MIT",
   "devDependencies": {
-    "requirejs": "^2.3.3"
+    "requirejs": "^2.3.3",
+    "spritesheet-js": "^1.2.6"
   }
 }

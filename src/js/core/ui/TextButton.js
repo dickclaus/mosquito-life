@@ -18,7 +18,7 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/ui/BaseButton"], function(
 		var graphics = new PIXI.Graphics();
 		graphics.lineStyle(1, 0, 1);
 		graphics.beginFill(0x3366AA, 1);
-		graphics.drawRect(-50, -25, 100, 50);
+		graphics.drawRect(-60, -25, 120, 50);
 		graphics.endFill();
 		this.addChild(graphics);
 

@@ -18,6 +18,10 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/utils/FunctionUtil", "view
 			// to override
 		};
 
+		Root.prototype.resize = function(width, height) {
+
+		};
+
 		Root.prototype.configureScreens = function() {
 			this.screenManager = new ScreenManager(this);
 

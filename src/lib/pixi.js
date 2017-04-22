@@ -3762,7 +3762,7 @@ EventEmitter.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
  *
  * @param {String} event Name of the event.
  * @param {Functon} fn Callback function.
- * @param {Mixed} context The context of the function.
+ * @param [context] {Mixed} context The context of the function.
  * @api public
  */
 EventEmitter.prototype.on = function on(event, fn, context) {

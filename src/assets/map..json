@@ -1,0 +1,37 @@
+{ "height":16,
+ "layers":[
+        {
+         "data":[7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 1, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 3221225478, 2, 1073741830, 7, 7, 7, 7, 7, 3221225478, 2, 6, 7, 2147483654, 2, 2, 2, 2, 2, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
+         "height":16,
+         "name":"map",
+         "offsetx":41,
+         "offsety":-44,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":10,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":64,
+ "tilesets":[
+        {
+         "columns":5,
+         "firstgid":1,
+         "image":"map_tiles.png",
+         "imageheight":320,
+         "imagewidth":320,
+         "margin":0,
+         "name":"world",
+         "spacing":0,
+         "tilecount":25,
+         "tileheight":64,
+         "tilewidth":64
+        }],
+ "tilewidth":64,
+ "version":1,
+ "width":10
+}
