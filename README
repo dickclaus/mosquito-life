@@ -1,0 +1,15 @@
+Mosquito Life
+=============
+
+Game for Ludum Dare 38
+
+This game is about difficult life of a mosquito
+
+Libraries used:
+
+* PixiJS
+* TweenMax
+* SoundJS
+* RequireJS
+
+

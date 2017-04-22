@@ -1,0 +1,22 @@
+{
+  "name": "mosquito-life",
+  "version": "0.0.1",
+  "description": "Mosquito Life - game for Ludum Dare 38",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "game",
+    "LD38",
+    "Ludum",
+    "Dare",
+    "mosquito",
+    "life"
+  ],
+  "author": "Dmitry Bezverkhiy",
+  "license": "MIT",
+  "devDependencies": {
+    "requirejs": "^2.3.3"
+  }
+}
