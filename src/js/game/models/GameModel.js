@@ -16,9 +16,9 @@ define(function() {
 
 		this.found = [];
 
-		this.items = ["ebony", "stone", "fire", "mosquito"];
+		this.items = ["ebony", "stone", "fire", "mosquito", "green_potion"];
 		this.total = this.items.length;
-		this.itemPositions = [{col:6,row:6}, {col:5, row:5}, {col:9, row:0}, {col:0, row:14}];
+		this.itemPositions = [{col:6,row:6}, {col:5, row:5}, {col:9, row:0}, {col:0, row:14}, {col:0, row:0}];
 	};
 
 	GameModel.prototype.hasFound = function(item) {
