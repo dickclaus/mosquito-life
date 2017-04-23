@@ -14,8 +14,10 @@ Libraries used:
 * TweenMax
 * SoundJS
 * RequireJS
+* spritesheet-js
 
 Tools used:
 * Paintbrush mac
 * Tiled
 * WebStorm
+* GarageBand
