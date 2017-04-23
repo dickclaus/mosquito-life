@@ -1,6 +1,6 @@
 define(["lib/pixi.min", "core/utils/ClassUtil", "core/screens/BaseScreen", "views/screens/Screens", "core/ui/ImageButton",
-		"models/GameModel", "controllers/KeyboardController", "core/events/msg"],
-	function(PIXI, ClassUtil, BaseScreen, Screens, ImageButton, gameModel, keyboardController, msg) {
+		"models/GameModel", "controllers/KeyboardController", "core/events/msg", "game/views/Map"],
+	function(PIXI, ClassUtil, BaseScreen, Screens, ImageButton, gameModel, keyboardController, msg, Map) {
 		"use strict";
 
 		function PlayScreen(id) {
@@ -18,37 +18,16 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/screens/BaseScreen", "view
 		};
 
 		PlayScreen.prototype.show = function() {
-			this.map = this.addMap();
+			this.map = this.createMap();
 			this.addHero();
 			this.exitButton = this.createExitButton();
 			keyboardController.enable();
-			msg.on("keyUp", this.moveUp);
-			msg.on("keyDown", this.moveDown);
-			msg.on("keyRight", this.moveRight);
-			msg.on("keyLeft", this.moveLeft);
+
 			this.emit("screenShowed");
 		};
 
-		PlayScreen.prototype.moveUp = function() {
-			this.map.position.y += 64;
-		};
-
-		PlayScreen.prototype.moveDown = function() {
-			this.map.position.y -= 64;
-		};
-
-		PlayScreen.prototype.moveLeft = function() {
-			this.map.position.x += 64;
-		};
-
-		PlayScreen.prototype.moveRight = function() {
-			this.map.position.x -= 64;
-		};
-
-		PlayScreen.prototype.addMap = function() {
-			var map = PIXI.Sprite.fromFrame("map.png");
-			map.anchor.set(0, 0);
-			map.position.set(-192, -192);
+		PlayScreen.prototype.createMap = function() {
+			var map = new Map();
 			return this.addChild(map);
 		};
 

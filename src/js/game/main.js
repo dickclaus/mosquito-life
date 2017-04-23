@@ -3,6 +3,7 @@ define(function (require) {
 	// with a relative require call,
 	// like:
 	var PIXI = require("lib/pixi.min");
+	var soundjs = require("lib/soundjs.min");
 	var Game = require("game/views/Game");
 
 	var renderer = PIXI.autoDetectRenderer(Game.WIDTH, Game.HEIGHT);
@@ -25,6 +26,9 @@ define(function (require) {
 	var loader = PIXI.loader.add("images/objects.json");
 	loader.on("progress", onLoadProgress);
 	loader.load(setup);
+
+
+	window.createjs.Sound.registerSound("sounds/no_way.ogg", "noWay");
 
 
 	//TODO: turn on correct resize

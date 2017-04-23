@@ -1,21 +1,21 @@
 {
 	"meta": {
 		"image": "objects.png",
-		"size": {"w":1024,"h":1024},
+		"size": {"w":1024,"h":2048},
 		"scale": "1"
 	},
 	"frames": {
 		"map.png":
 		{
-			"frame": {"x":0,"y":0,"w":640,"h":1024},
+			"frame": {"x":0,"y":0,"w":896,"h":1472},
 			"rotated": false,
 			"trimmed": false,
-			"spriteSourceSize": {"x":0,"y":0,"w":640,"h":1024},
-			"sourceSize": {"w":640,"h":1024}
+			"spriteSourceSize": {"x":0,"y":0,"w":896,"h":1472},
+			"sourceSize": {"w":896,"h":1472}
 		},
 		"back_button.png":
 		{
-			"frame": {"x":640,"y":0,"w":64,"h":64},
+			"frame": {"x":896,"y":0,"w":64,"h":64},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -23,7 +23,7 @@
 		},
 		"ebony.png":
 		{
-			"frame": {"x":640,"y":64,"w":64,"h":64},
+			"frame": {"x":896,"y":64,"w":64,"h":64},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -31,7 +31,7 @@
 		},
 		"green_potion.png":
 		{
-			"frame": {"x":640,"y":128,"w":64,"h":64},
+			"frame": {"x":896,"y":128,"w":64,"h":64},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -39,7 +39,7 @@
 		},
 		"wizard.png":
 		{
-			"frame": {"x":640,"y":192,"w":64,"h":64},
+			"frame": {"x":896,"y":192,"w":64,"h":64},
 			"rotated": false,
 			"trimmed": false,
 			"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},

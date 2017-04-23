@@ -49,7 +49,7 @@ this.createjs = this.createjs || {};
 	 * @type String
 	 * @static
 	 **/
-	s.version = /*=version*/"0.6.2"; // injected by build process
+	s.version = /*=version*/"NEXT"; // injected by build process
 
 	/**
 	 * The build date for this release in UTC format.
@@ -57,7 +57,7 @@ this.createjs = this.createjs || {};
 	 * @type String
 	 * @static
 	 **/
-	s.buildDate = /*=date*/"Thu, 26 Nov 2015 20:44:31 GMT"; // injected by build process
+	s.buildDate = /*=date*/"Fri, 04 Dec 2015 17:24:04 GMT"; // injected by build process
 
 })();
 
@@ -4437,7 +4437,7 @@ this.createjs = this.createjs || {};
 	 *          {src:"asset0.ogg", id:"example"},
 	 *          {src:"asset1.ogg", id:"1", data:6},
 	 *          {src:"asset2.mp3", id:"works"}
-	 *          {src:{mp3:"path1/asset3.mp3", ogg:"path2/asset3NoExtension}, id:"better"}
+	 *          {src:{mp3:"path1/asset3.mp3", ogg:"path2/asset3NoExtension"}, id:"better"}
 	 *      ];
 	 *      createjs.Sound.alternateExtensions = ["mp3"];	// if the passed extension is not supported, try this extension
 	 *      createjs.Sound.on("fileload", handleLoad); // call handleLoad when each sound loads
