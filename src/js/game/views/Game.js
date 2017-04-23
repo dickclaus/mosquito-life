@@ -9,7 +9,7 @@ define(["core/utils/FunctionUtil", "views/Root", "core/utils/setTimeout", "core/
 		this.root = null;
 
 		this.resizeTimeout = null;
-		//window.addEventListener("resize", this.onResize);
+		window.addEventListener("resize", this.onResize);
 		msg.emit("second");
 	}
 
@@ -17,7 +17,7 @@ define(["core/utils/FunctionUtil", "views/Root", "core/utils/setTimeout", "core/
 	Game.HEIGHT = 512;
 
 	Game.prototype.showGame = function() {
-		console.log("showGame");
+		//console.log("showGame");
 		this.root = this.createGame();
 	};
 

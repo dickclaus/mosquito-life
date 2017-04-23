@@ -17,22 +17,23 @@ define(function (require) {
 	function setup() {
 		var game = new Game(stage, renderer);
 		game.showGame();
+		game.resizeGame();
 	}
 
 	function onLoadProgress(loader) {
 		console.log(loader.progress);
 	}
 
-	var loader = PIXI.loader.add("images/objects.json");
+	var loader = PIXI.loader.add("images/objects.json").add('potions', 'images/potions.xml');
 	loader.on("progress", onLoadProgress);
 	loader.load(setup);
 
 
-	window.createjs.Sound.registerSound("sounds/no_way.ogg", "noWay");
+	window.createjs.Sound.registerSound("sounds/music.mp3", "music");
+	window.createjs.Sound.registerSound("sounds/no_way.mp3", "noWay");
+	window.createjs.Sound.registerSound("sounds/found.mp3", "found");
 
 
-	//TODO: turn on correct resize
-	//game.resizeGame();
 
 	function gameLoop() {
 		requestAnimationFrame(gameLoop);

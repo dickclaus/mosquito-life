@@ -7,6 +7,14 @@ define(["core/utils/ClassUtil", "core/screens/BaseScreen", "views/screens/Screen
 
 		this.optionsButton = this.createOptionsButton();
 		this.playButton = this.createPlayButton();
+
+		var text = new PIXI.Text("Potions Recipes", {fontFamily : 'Arial', fontSize: 24, fill : 0xA37AFF, dropShadow:true, dropShadowColor:0x000000, dropShadowBlur:4, stroke: 0xA3B4FF, align : 'left'});
+		text.position.set(20, 20);
+		this.addChild(text);
+
+		var text2 = new PIXI.Text("by Dmitry Bezverkhiy\nfor Ludum Dare 38", {fontFamily : 'Arial', fontSize: 18, fill : 0xA37AFF, stroke: 0xA3B4FF, align : 'left'});
+		text2.position.set(20, 60);
+		this.addChild(text2);
 	}
 
 	ClassUtil.extend(GameScreen, BaseScreen);
@@ -36,7 +44,7 @@ define(["core/utils/ClassUtil", "core/screens/BaseScreen", "views/screens/Screen
 	};
 
 	GameScreen.prototype.onOptionsClicked = function() {
-		console.log("onExitClicked");
+		//console.log("onExitClicked");
 	};
 
 	GameScreen.prototype.onPlayClicked = function() {

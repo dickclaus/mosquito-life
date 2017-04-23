@@ -3,7 +3,7 @@ define(["lib/pixi.min", "core/utils/ClassUtil"], function(PIXI, ClassUtil) {
 
 	function msg() {
 		PIXI.Container.call(this);
-		console.log("create");
+		//console.log("create");
 	}
 
 	ClassUtil.extend(msg, PIXI.Container);

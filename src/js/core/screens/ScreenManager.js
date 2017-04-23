@@ -24,7 +24,7 @@ define(["core/utils/FunctionUtil"], function(FunctionUtil) {
 	};
 
 	ScreenManager.prototype.onChangeScreen = function(id) {
-		console.log("%c" + "onChangeScreen " + id, "color: #FF0000");
+		//console.log("%c" + "onChangeScreen " + id, "color: #FF0000");
 		this.currentScreen.off("changeScreen", this.onChangeScreen);
 		this.container.removeChild(this.currentScreen);
 		this.show(id);

@@ -10,7 +10,7 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/ui/BaseButton"], function(
 
 	TextButton.prototype.onClick = function() {
 		if (!this.enabled) return;
-		console.log("%c" + "clicked", "color: #FF0000");
+		//console.log("%c" + "clicked", "color: #FF0000");
 		this.emit("buttonClicked");
 	};
 

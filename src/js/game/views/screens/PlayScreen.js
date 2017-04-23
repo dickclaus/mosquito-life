@@ -1,6 +1,8 @@
 define(["lib/pixi.min", "core/utils/ClassUtil", "core/screens/BaseScreen", "views/screens/Screens", "core/ui/ImageButton",
-		"models/GameModel", "controllers/KeyboardController", "core/events/msg", "game/views/Map"],
-	function(PIXI, ClassUtil, BaseScreen, Screens, ImageButton, gameModel, keyboardController, msg, Map) {
+		"models/GameModel", "controllers/KeyboardController", "controllers/FindController", "core/events/msg", "game/views/Map",
+		"game/views/Counter", "core/utils/setTimeout", "game/views/ui/FoundPopup"],
+	function(PIXI, ClassUtil, BaseScreen, Screens, ImageButton, gameModel, keyboardController, findController, msg, Map,
+	         Counter, setTimeout, FoundPopup) {
 		"use strict";
 
 		function PlayScreen(id) {
@@ -20,15 +22,46 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/screens/BaseScreen", "view
 		PlayScreen.prototype.show = function() {
 			this.map = this.createMap();
 			this.addHero();
+			this.counter = this.createCounter();
 			this.exitButton = this.createExitButton();
 			keyboardController.enable();
+			findController.enable();
 
+			window.createjs.Sound.play("music", {loop:-1, volume:1});
+
+			msg.on("found", this.onItemFound);
 			this.emit("screenShowed");
+		};
+
+		PlayScreen.prototype.onItemFound = function(index) {
+			keyboardController.disable();
+			this.showPopup(gameModel.items[index]);
+			setTimeout(this.onPopupHide, 5.0);
+		};
+
+		PlayScreen.prototype.showPopup = function(item) {
+			this.popup = new FoundPopup(item);
+			this.addChild(this.popup);
+		};
+
+		PlayScreen.prototype.onPopupHide = function() {
+			keyboardController.enable();
+			this.removeChild(this.popup);
+			this.popup = null;
+			if (gameModel.collected === gameModel.total) {
+				this.showPopup("everything");
+			}
 		};
 
 		PlayScreen.prototype.createMap = function() {
 			var map = new Map();
+			map.init();
 			return this.addChild(map);
+		};
+
+		PlayScreen.prototype.createCounter = function() {
+			var counter = new Counter();
+			return this.addChild(counter);
 		};
 
 		PlayScreen.prototype.addHero = function() {
@@ -48,6 +81,7 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/screens/BaseScreen", "view
 
 		PlayScreen.prototype.onExitClicked = function() {
 			keyboardController.disable();
+			findController.disable();
 			msg.off("keyUp", this.moveUp);
 			msg.off("keyDown", this.moveDown);
 			msg.off("keyRight", this.moveRight);

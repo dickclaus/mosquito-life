@@ -5,19 +5,30 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/utils/FunctionUtil", "core
 	function Map() {
 		PIXI.Container.call(this);
 		FunctionUtils.bindAll(this);
-		this.currentCol = 5;
-		this.currentRow = 6;
+
+		this.LEFT_OFFSET = 2;
+		this.TOP_OFFSET = 3;
 
 		this.map = this.addMap();
-		this.repositionMap();
+		this.items = [];
 
 		msg.on("keyUp", this.moveUp);
 		msg.on("keyDown", this.moveDown);
 		msg.on("keyRight", this.moveRight);
 		msg.on("keyLeft", this.moveLeft);
+		msg.on("found", this.onFound);
 	}
 
 	ClassUtils.extend(Map, PIXI.Container);
+
+	Map.prototype.init = function() {
+		this.addObjects();
+		this.repositionMap();
+	};
+
+	Map.prototype.onFound = function(i) {
+		this.map.removeChild(this.items[i]);
+	};
 
 	Map.prototype.addMap = function() {
 		var map = PIXI.Sprite.fromFrame("map.png");
@@ -25,23 +36,38 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/utils/FunctionUtil", "core
 		return this.addChild(map);
 	};
 
+	Map.prototype.addObjects = function() {
+		for (var i = 0; i < gameModel.items.length; i++) {
+			var item = gameModel.items[i];
+			var child = this.addItem(item, gameModel.itemPositions[i]);
+			this.items.push(child);
+		}
+	};
+
+	Map.prototype.addItem = function(itemName, position) {
+		var item = PIXI.Sprite.fromFrame(itemName + ".png");
+		item.anchor.set(0, 0);
+		item.position.set((this.LEFT_OFFSET + position.col) * 64, (this.TOP_OFFSET + position.row) * 64);
+		return this.map.addChild(item);
+	};
+
 	Map.prototype.moveUp = function() {
-		this.currentRow--;
+		gameModel.currentRow--;
 		this.repositionMap();
 	};
 
 	Map.prototype.moveDown = function() {
-		this.currentRow++;
+		gameModel.currentRow++;
 		this.repositionMap();
 	};
 
 	Map.prototype.moveLeft = function() {
-		this.currentCol--;
+		gameModel.currentCol--;
 		this.repositionMap();
 	};
 
 	Map.prototype.moveRight = function() {
-		this.currentCol++;
+		gameModel.currentCol++;
 		this.repositionMap();
 	};
 
@@ -50,29 +76,29 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/utils/FunctionUtil", "core
 	};
 
 	Map.prototype.checkBorder = function() {
-		if (this.currentCol >= gameModel.W_SIZE) {
-			this.currentCol--;
+		if (gameModel.currentCol >= gameModel.W_SIZE) {
+			gameModel.currentCol--;
 			this.playNoWay();
 		}
-		if (this.currentCol < 0) {
-			this.currentCol++;
+		if (gameModel.currentCol < 0) {
+			gameModel.currentCol++;
 			this.playNoWay();
 		}
-		if (this.currentRow >= gameModel.H_SIZE) {
-			this.currentRow--;
+		if (gameModel.currentRow >= gameModel.H_SIZE) {
+			gameModel.currentRow--;
 			this.playNoWay();
 		}
-		if (this.currentRow < 0) {
-			this.currentRow++;
+		if (gameModel.currentRow < 0) {
+			gameModel.currentRow++;
 			this.playNoWay();
 		}
 	};
 
 	Map.prototype.repositionMap = function() {
 		this.checkBorder();
-
-		this.map.position.x = this.currentCol * -64;
-		this.map.position.y = this.currentRow * -64;
+		this.map.position.x = gameModel.currentCol * -64;
+		this.map.position.y = gameModel.currentRow * -64;
+		msg.emit("moved");
 	};
 
 

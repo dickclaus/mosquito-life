@@ -23,11 +23,11 @@ define(["lib/pixi.min", "core/utils/ClassUtil", "core/ui/BaseButton"], function(
 	};
 
 	ImageButton.prototype.onMouseOver = function() {
-		console.log("%c" + "over", "color: #FF0000");
+		//console.log("%c" + "over", "color: #FF0000");
 	};
 
 	ImageButton.prototype.onMouseOut = function() {
-		console.log("%c" + "out", "color: #FF0000");
+		//console.log("%c" + "out", "color: #FF0000");
 	};
 
 	return ImageButton;
